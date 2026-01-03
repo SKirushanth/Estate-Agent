@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import PropertyCard from "../components/PropertyCard";
 import FavouritesSidebar from "../components/FavouritesSidebar";
-import { properties } from "../data/properties";
+// 👇 THIS IS THE FIX: Removed { } and added .json
+import properties from "../data/properties.json"; 
 import { Search, RefreshCw, Calendar, ChevronDown } from "lucide-react";
 
 const SearchPage = ({

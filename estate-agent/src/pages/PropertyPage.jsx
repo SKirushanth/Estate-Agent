@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { properties } from '../data/properties';
+import properties from '../data/properties.json';
 import { Heart, ArrowLeft, MapPin, Bed, Info, Map as MapIcon, Image as ImageIcon } from 'lucide-react';
 
 const PropertyPage = ({ addToFavourites, favourites }) => {

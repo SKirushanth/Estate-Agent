@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDrag } from 'react-dnd';
-import { Bed, MapPin, Calendar } from 'lucide-react';
+import { MapPin, Banknote } from 'lucide-react';
 
 const PropertyCard = ({ property }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -12,43 +12,74 @@ const PropertyCard = ({ property }) => {
     }),
   }));
 
+  // Format price
+  const formattedPrice = `£${property.price.toLocaleString()}`;
+
   return (
-    <div 
+    <div
       ref={drag}
-      className={`bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition cursor-grab active:cursor-grabbing ${isDragging ? 'opacity-50' : 'opacity-100'}`}
+      // Added 'rounded-xl' for rounded corners and 'border' for a soft edge
+      className={`group relative w-full bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-grab active:cursor-grabbing ${
+        isDragging ? 'opacity-50' : 'opacity-100'
+      }`}
     >
-      <div className="relative h-48 w-full bg-slate-200">
-        <img 
-          src={property.images[0]} 
-          alt={property.type} 
-          className="w-full h-full object-cover"
-          onError={(e) => {e.target.src = 'https://placehold.co/400x300?text=No+Image'}}
-        />
-        <div className="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
-          {property.type}
-        </div>
-      </div>
-      
-      <div className="p-5">
-        <h3 className="text-2xl font-bold text-blue-900 mb-1">£{property.price.toLocaleString()}</h3>
-        <p className="text-slate-600 mb-4 line-clamp-1">{property.description}</p>
-        
-        <div className="flex items-center gap-4 text-sm text-slate-500 mb-4">
-          <div className="flex items-center gap-1">
-            <Bed className="w-4 h-4" />
-            <span>{property.bedrooms}</span>
-          </div>
-          <div className="flex items-center gap-1">
-             <MapPin className="w-4 h-4" />
-             <span>{property.postcode}</span>
-          </div>
-        </div>
-        <Link 
-          to={`/property/${property.id}`}
-          className="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-medium py-2 rounded-lg transition"
-        >
-          View Details
+      {/* --- Image Section --- */}
+      <div className="relative h-56 w-full overflow-hidden">
+        {/* Main Image */}
+        <Link to={`/property/${property.id}`}>
+          <img
+            src={property.images[0]}
+            alt={property.type}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            onError={(e) => {
+              e.target.src = 'https://placehold.co/400x300?text=No+Image';
+            }}
+          />
         </Link>
+      </div>
+
+      {/* --- Content Section --- */}
+      <div className="p-6">
+        {/* Category (Type) */}
+        <p className="text-gray-400 text-[10px] font-bold tracking-[0.2em] uppercase mb-3">
+          {property.type}
+        </p>
+
+        {/* Title / Description - Updated with font-serif */}
+        <Link to={`/property/${property.id}`} className="block">
+          <h3 className="font-serif text-2xl text-gray-800 leading-tight mb-6 line-clamp-2 hover:text-[#E37D32] transition-colors">
+            {property.description}
+          </h3>
+        </Link>
+
+        {/* Details Grid */}
+        <div className="space-y-4">
+          {/* Location Row */}
+          <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+            <div className="flex items-center text-gray-500 gap-3">
+              <MapPin size={16} />
+              <span className="text-[10px] font-bold tracking-widest uppercase">
+                Location
+              </span>
+            </div>
+            <span className="text-gray-700 text-sm font-semibold uppercase">
+              {property.postcode}
+            </span>
+          </div>
+
+          {/* Price Row */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center text-gray-500 gap-3">
+              <Banknote size={16} />
+              <span className="text-[10px] font-bold tracking-widest uppercase">
+                Price
+              </span>
+            </div>
+            <span className="text-gray-800 text-sm font-bold">
+              {formattedPrice}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );

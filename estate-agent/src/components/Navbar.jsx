@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Heart } from 'lucide-react';
+import { Home } from 'lucide-react';
 
 const Navbar = () => {
   return (
@@ -10,13 +10,6 @@ const Navbar = () => {
           <Home className="w-8 h-8" />
           <span>EstateAgent</span>
         </Link>
-        <div className="flex gap-6">
-          <Link to="/" className="text-slate-600 hover:text-blue-600 font-medium transition">Search</Link>
-          <div className="flex items-center gap-1 text-slate-600">
-             <Heart className="w-4 h-4" />
-             <span className="font-medium">Favourites</span>
-          </div>
-        </div>
       </div>
     </nav>
   );

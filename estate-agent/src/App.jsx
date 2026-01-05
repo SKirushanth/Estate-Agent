@@ -5,6 +5,8 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import SearchPage from './pages/SearchPage';
 import PropertyPage from './pages/PropertyPage';
 import Navbar from './components/Navbar';
+// 1. Import the Footer
+import Footer from './components/Footer';
 
 function App() {
   // Central State for Favourites
@@ -33,30 +35,39 @@ function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <Router>
-        <div className="min-h-screen bg-gray-50 text-slate-900 font-sans">
+        {/* 2. Added 'flex flex-col' to make the layout vertical */}
+        <div className="min-h-screen bg-gray-50 text-slate-900 font-sans flex flex-col">
           <Navbar />
-          <Routes>
-            <Route 
-              path="/" 
-              element={
-                <SearchPage 
-                  favourites={favourites} 
-                  addToFavourites={addToFavourites} 
-                  removeFromFavourites={removeFromFavourites}
-                  clearFavourites={clearFavourites}
-                />
-              } 
-            />
-            <Route 
-              path="/property/:id" 
-              element={
-                <PropertyPage 
-                  addToFavourites={addToFavourites} 
-                  favourites={favourites}
-                />
-              } 
-            />
-          </Routes>
+          
+          {/* 3. Wrapped Routes in 'main' with 'flex-grow' to push footer down */}
+          <main className="flex-grow">
+            <Routes>
+              <Route 
+                path="/" 
+                element={
+                  <SearchPage 
+                    favourites={favourites} 
+                    addToFavourites={addToFavourites} 
+                    removeFromFavourites={removeFromFavourites}
+                    clearFavourites={clearFavourites}
+                  />
+                } 
+              />
+              <Route 
+                path="/property/:id" 
+                element={
+                  <PropertyPage 
+                    addToFavourites={addToFavourites} 
+                    favourites={favourites}
+                  />
+                } 
+              />
+            </Routes>
+          </main>
+
+          {/* 4. Added Footer at the bottom */}
+          <Footer />
+          
         </div>
       </Router>
     </DndProvider>

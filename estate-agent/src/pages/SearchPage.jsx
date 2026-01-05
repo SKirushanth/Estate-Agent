@@ -4,7 +4,7 @@ import FavouritesSidebar from "../components/FavouritesSidebar";
 // Asset import for the background image
 import heroBg from "../assets/hero-bg.png"; 
 import properties from "../data/properties.json"; 
-import { Search, RefreshCw, Calendar, ChevronDown } from "lucide-react";
+import { Search, RefreshCw, ChevronDown } from "lucide-react";
 
 const SearchPage = ({
   addToFavourites,
@@ -19,8 +19,6 @@ const SearchPage = ({
     minBedrooms: "",
     maxBedrooms: "",
     postcode: "",
-    dateAfter: "",
-    dateBefore: "",
   });
 
   // Filter Logic
@@ -37,11 +35,7 @@ const SearchPage = ({
       return false;
     if (filters.postcode && !property.postcode.toLowerCase().startsWith(filters.postcode.toLowerCase()))
       return false;
-    const propDate = new Date(property.dateAdded);
-    if (filters.dateAfter && propDate < new Date(filters.dateAfter))
-      return false;
-    if (filters.dateBefore && propDate > new Date(filters.dateBefore))
-      return false;
+    
     return true;
   });
 
@@ -57,14 +51,12 @@ const SearchPage = ({
       minBedrooms: "",
       maxBedrooms: "",
       postcode: "",
-      dateAfter: "",
-      dateBefore: "",
     });
   };
 
   return (
     <div className="min-h-screen bg-slate-50 pb-12">
-      {/* 1. HERO SECTION - Font Updated to Serif */}
+      {/* 1. HERO SECTION */}
       <div 
         className="relative bg-blue-900 text-white py-24 px-4 text-center shadow-lg mb-8 overflow-hidden"
         style={{
@@ -75,7 +67,6 @@ const SearchPage = ({
         }}
       >
         <div className="relative z-10">
-          {/* Changed to font-serif to match your image */}
           <h1 className="text-4xl md:text-5xl font-serif font-medium mb-4 drop-shadow-2xl">
             Find Your Dream Home
           </h1>
@@ -90,7 +81,6 @@ const SearchPage = ({
         <div className="lg:col-span-3 space-y-6">
           <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
             <div className="flex justify-between items-center mb-6">
-              {/* Filter title updated to Serif */}
               <h2 className="text-xl font-serif font-bold text-slate-800">
                 Find Your Perfect Property
               </h2>
@@ -102,6 +92,7 @@ const SearchPage = ({
               </button>
             </div>
 
+            {/* Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-slate-500 uppercase">Property Type</label>
@@ -174,32 +165,6 @@ const SearchPage = ({
                   value={filters.postcode}
                   onChange={(e) => setFilters({ ...filters, postcode: e.target.value })}
                 />
-              </div>
-
-              <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-500 uppercase">Added After</label>
-                <div className="relative">
-                  <input
-                    type="date"
-                    className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    value={filters.dateAfter}
-                    onChange={(e) => setFilters({ ...filters, dateAfter: e.target.value })}
-                  />
-                  <Calendar className="absolute right-3 top-3.5 w-4 h-4 text-slate-400 pointer-events-none" />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-500 uppercase">Added Before</label>
-                <div className="relative">
-                  <input
-                    type="date"
-                    className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    value={filters.dateBefore}
-                    onChange={(e) => setFilters({ ...filters, dateBefore: e.target.value })}
-                  />
-                  <Calendar className="absolute right-3 top-3.5 w-4 h-4 text-slate-400 pointer-events-none" />
-                </div>
               </div>
             </div>
           </div>

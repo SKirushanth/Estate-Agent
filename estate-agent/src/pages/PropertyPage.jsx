@@ -107,16 +107,14 @@ const PropertyPage = ({ addToFavourites, favourites }) => {
                   <div className="animate-in fade-in duration-300">
                     <h3 className="font-bold text-slate-800 mb-4">Property Details</h3>
                     <p className="text-slate-600 leading-relaxed mb-6">{property.longDescription}</p>
-                    <div className="grid grid-cols-2 gap-4">
+                    
+                    {/* UPDATED SECTION: Removed 'Added On' and changed grid to single column */}
+                    <div className="grid grid-cols-1 gap-4">
                        <div className="bg-slate-50 p-3 rounded-lg">
                           <span className="block text-xs text-slate-400 uppercase">Bedrooms</span>
                           <span className="font-semibold text-slate-800 flex items-center gap-2">
                              <Bed className="w-4 h-4" /> {property.bedrooms}
                           </span>
-                       </div>
-                       <div className="bg-slate-50 p-3 rounded-lg">
-                          <span className="block text-xs text-slate-400 uppercase">Added On</span>
-                          <span className="font-semibold text-slate-800">{property.addedDate}</span>
                        </div>
                     </div>
                   </div>

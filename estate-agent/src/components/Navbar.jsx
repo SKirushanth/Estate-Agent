@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-blue-900">
           <Home className="w-8 h-8" />
-          <span>EstateAgent</span>
+          <span>Prestige</span>
         </Link>
       </div>
     </nav>

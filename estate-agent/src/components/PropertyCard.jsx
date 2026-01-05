@@ -18,7 +18,7 @@ const PropertyCard = ({ property }) => {
   return (
     <div
       ref={drag}
-      // Added 'rounded-xl' for rounded corners and 'border' for a soft edge
+      
       className={`group relative w-full bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-grab active:cursor-grabbing ${
         isDragging ? 'opacity-50' : 'opacity-100'
       }`}
@@ -45,7 +45,6 @@ const PropertyCard = ({ property }) => {
           {property.type}
         </p>
 
-        {/* Title / Description - Updated with font-serif */}
         <Link to={`/property/${property.id}`} className="block">
           <h3 className="font-serif text-2xl text-gray-800 leading-tight mb-6 line-clamp-2 hover:text-[#E37D32] transition-colors">
             {property.description}

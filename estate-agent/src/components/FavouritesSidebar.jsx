@@ -19,7 +19,6 @@ const FavouritesSidebar = ({ favourites, onRemove, onClear, onDrop }) => {
         className={`bg-white rounded-xl shadow-sm border p-4 transition-colors ${isOver ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200' : 'border-slate-200'}`}
       >
         <div className="flex justify-between items-center mb-4 pb-4 border-b border-slate-100">
-          {/* UPDATED: Added font-serif to match the rest of the site */}
           <h2 className="text-xl font-serif font-bold text-slate-800">Favourites ({favourites.length})</h2>
           
           {favourites.length > 0 && (
@@ -48,7 +47,7 @@ const FavouritesSidebar = ({ favourites, onRemove, onClear, onDrop }) => {
                  />
                  <div className="flex-1 min-w-0">
                     <p className="font-bold text-slate-800 text-sm truncate">£{fav.price.toLocaleString()}</p>
-                    {/* UPDATED: Description also looks nice in serif, or keep sans for readability. Kept standard here but slightly adjusted color. */}
+                    {/*Description also looks nice in serif, or keep sans for readability. Kept standard here but slightly adjusted color. */}
                     <p className="text-xs text-slate-500 truncate">{fav.description}</p>
                     <Link to={`/property/${fav.id}`} className="text-xs text-blue-600 hover:underline mt-1 block">View</Link>
                  </div>

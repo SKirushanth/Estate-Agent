@@ -108,7 +108,7 @@ const PropertyPage = ({ addToFavourites, favourites }) => {
                     <h3 className="font-bold text-slate-800 mb-4">Property Details</h3>
                     <p className="text-slate-600 leading-relaxed mb-6">{property.longDescription}</p>
                     
-                    {/* UPDATED SECTION: Removed 'Added On' and changed grid to single column */}
+                   
                     <div className="grid grid-cols-1 gap-4">
                        <div className="bg-slate-50 p-3 rounded-lg">
                           <span className="block text-xs text-slate-400 uppercase">Bedrooms</span>

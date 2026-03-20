@@ -3,6 +3,16 @@ import {
   property1FloorPlan,
   property2Images,
   property2FloorPlan,
+  property3Images,
+  property3FloorPlan,
+  property4Images,
+  property4FloorPlan,
+  property5Images,
+  property5FloorPlan,
+  property6Images,
+  property6FloorPlan,
+  property7Images,
+  property7FloorPlan,
 } from "../assets/asset";
 
 const properties = [
@@ -50,18 +60,10 @@ const properties = [
     description: "Mid-Century Modern - The Westcoast",
     location: "Walthamstow, London",
     dateAdded: "2024-12-05",
-    images: [
-      "https://www.thehousedesigners.com/images/plans/01/URD/bulk/7662/the-westcoast-rendering-uprise-house-plans.webp",
-      "https://www.thehousedesigners.com/images/plans/01/URD/bulk/7662/the-westcoast-client-photos-exterior.webp",
-      "https://www.thehousedesigners.com/images/plans/01/URD/bulk/7662/the-westcoast-client-photos-living-dining-kitchen.webp",
-      "https://www.thehousedesigners.com/images/plans/01/URD/bulk/7662/the-westcoast-client-photos-foyer.webp",
-      "https://www.thehousedesigners.com/images/plans/01/URD/bulk/7662/the-westcoast-client-photos-master.webp",
-      "https://www.thehousedesigners.com/images/plans/01/URD/bulk/7662/the-westcoast-client-photos-ensuite.webp",
-    ],
+    images: property3Images,
     longDescription:
       "The Westcoast is a 3,430 square foot masterpiece showcasing modern architectural grace.\nIt features a vaulted foyer with floor-to-ceiling windows and an expansive open floor plan.\nThe kitchen includes a walk-in pantry and a splendid island, perfect for indoor-outdoor living.\nA walkout basement offers two additional bedrooms and ample space for a home gym or theater.",
-    floorPlan:
-      "https://www.thehousedesigners.com/images/plans/01/URD/bulk/7662/the-westcoast-house-plan-main-floor.webp",
+    floorPlan: property3FloorPlan,
     lat: 51.583,
     lng: -0.013,
   },
@@ -75,18 +77,10 @@ const properties = [
     description: "Chic 1-Bedroom Urban Studio",
     location: "Walthamstow, London",
     dateAdded: "2024-12-28",
-    images: [
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80",
-    ],
+    images: property4Images,
     longDescription:
       "This chic 1-bedroom studio offers a perfect blend of modern design and urban convenience in a prime location.\nThe apartment features an open-plan living area with premium hardwood flooring and high-end industrial finishes.\nA bespoke designer kitchen comes fully equipped with integrated appliances and a sleek minimalist breakfast bar.\nThe building provides residents with access to a communal roof terrace, bike storage, and a secure entry system.",
-    floorPlan:
-      "https://www.thehousedesigners.com/images/plans/01/SCA/bulk/8065/screen-shot-2024-03-08-at-2.43.19-pm.webp",
+    floorPlan: property4FloorPlan,
     lat: 51.585,
     lng: -0.015,
   },
@@ -100,18 +94,10 @@ const properties = [
     description: "Luxury Ranch - The Woodland Park",
     location: "Walthamstow, London",
     dateAdded: "2024-12-10",
-    images: [
-      "https://www.thehousedesigners.com/images/plans/01/REN/bulk/11419/main-rendering-edit_3.webp",
-      "https://www.thehousedesigners.com/images/plans/01/REN/bulk/11419/main-rendering-edit_5.webp",
-      "https://www.thehousedesigners.com/images/plans/01/REN/bulk/11419/i64a9436-edit.webp",
-      "https://www.thehousedesigners.com/images/plans/01/REN/bulk/11419/i64a9705-edit.webp",
-      "https://www.thehousedesigners.com/images/plans/01/REN/bulk/11419/i64a9659-edit.webp",
-      "https://www.thehousedesigners.com/images/plans/01/REN/bulk/11419/i64a9676-edit.webp",
-    ],
+    images: property5Images,
     longDescription:
       "The Woodland Park is a spectacular 5-bedroom ranch-style home offering 5,351 square feet of luxury space.\nIt features a vaulted great room, a gourmet kitchen with a large island, and a private primary suite.\nAdditional highlights include a home office, a guest suite, and a massive lower-level recreation room.",
-    floorPlan:
-      "https://www.thehousedesigners.com/images/plans/01/REN/bulk/11419/main-floor-mrktg.webp",
+    floorPlan: property5FloorPlan,
     lat: 51.58,
     lng: -0.01,
   },
@@ -125,18 +111,10 @@ const properties = [
     description: "Luxury 2-Bed Riverside Apartment",
     location: "Battersea, London",
     dateAdded: "2026-01-04",
-    images: [
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1200&q=80",
-    ],
+    images: property6Images,
     longDescription:
       "A stunning third-floor apartment featuring floor-to-ceiling windows with views of the Thames. This property offers a high-specification open-plan kitchen, two double bedrooms with built-in storage, and a private balcony. Residents also benefit from a 24-hour concierge and a private gym.",
-    floorPlan:
-      "https://www.thehousedesigners.com/images/plans/01/JHD/bulk/11983/1-2-694-basement.webp",
+    floorPlan: property6FloorPlan,
     lat: 51.48,
     lng: -0.17,
   },
@@ -150,18 +128,10 @@ const properties = [
     description: "Mid-Century Modern Villa",
     location: "Walthamstow, London",
     dateAdded: "2024-11-25",
-    images: [
-      "https://www.thehousedesigners.com/images/plans/01/SCA/bulk/9333/01-laquinta-front-copy.webp",
-      "https://www.thehousedesigners.com/images/plans/01/SCA/bulk/9333/04-laquinta-front.webp",
-      "https://www.thehousedesigners.com/images/plans/01/SCA/bulk/9333/03-laquinta-front.webp",
-      "https://www.thehousedesigners.com/images/plans/01/SCA/bulk/9333/09-laquinta-interior.webp",
-      "https://www.thehousedesigners.com/images/plans/01/SCA/bulk/9333/08-laquinta-interior.webp",
-      "https://www.thehousedesigners.com/images/plans/01/SCA/bulk/9333/10-laquinta-interior.webp",
-    ],
+    images: property7Images,
     longDescription:
       "The Pomona is a striking 3-bedroom Mid-Century Modern home spanning 3,118 square feet. It features an open-concept layout with floor-to-ceiling windows and a gourmet kitchen.",
-    floorPlan:
-      "https://www.thehousedesigners.com/images/plans/01/SCA/bulk/9333/1st-floor.webp",
+    floorPlan: property7FloorPlan,
     lat: 51.59,
     lng: -0.02,
   },

@@ -1,4 +1,9 @@
-import { property1Images, property1FloorPlan } from "../assets/asset";
+import {
+  property1Images,
+  property1FloorPlan,
+  property2Images,
+  property2FloorPlan,
+} from "../assets/asset";
 
 const properties = [
   {
@@ -28,18 +33,10 @@ const properties = [
     description: "Penthouse Style 2-Bed Luxury Flat",
     location: "Walthamstow, London",
     dateAdded: "2024-12-15",
-    images: [
-      "https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1591924450983-b8f7587ea332?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1668911094844-527491335108?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    ],
+    images: property2Images,
     longDescription:
       "This stunning penthouse-style flat features expansive floor-to-ceiling windows and premium finishes throughout.\nThe open-plan living area extends onto a private wrap-around terrace with panoramic views of the city skyline.\nBoth double bedrooms include bespoke fitted wardrobes and luxury en-suite bathrooms with walk-in rain showers.\nLocated within an exclusive gated development, residents enjoy a private gym, concierge, and secure parking.",
-    floorPlan:
-      "https://www.thehousedesigners.com/images/plans/01/SCA/bulk/1250/main-floor-plan.webp",
+    floorPlan: property2FloorPlan,
     lat: 51.581,
     lng: -0.011,
   },

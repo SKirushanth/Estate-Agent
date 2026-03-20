@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
 } from "react-router-dom";
+import Lenis from "lenis";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import SearchPage from "./pages/SearchPage";
@@ -17,7 +18,7 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   React.useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [pathname]);
 
   return null;
@@ -26,6 +27,37 @@ function ScrollToTop() {
 function App() {
   // Central State for Favourites
   const [favourites, setFavourites] = useState([]);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
+    const lenis = new Lenis({
+      smoothWheel: true,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.2,
+      lerp: 0.08,
+    });
+
+    let rafId;
+
+    const raf = (time) => {
+      lenis.raf(time);
+      rafId = window.requestAnimationFrame(raf);
+    };
+
+    rafId = window.requestAnimationFrame(raf);
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
 
   // Function to add a property to favourites
   const addToFavourites = (property) => {

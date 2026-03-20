@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import PropertyCard from "../components/PropertyCard";
 import FavouritesSidebar from "../components/FavouritesSidebar";
 // Asset import for the background image
-import heroBg from "../assets/hero-bg.jpg";
+import heroBg from "../assets/hero-bg.avif";
 import properties from "../data/properties";
 import { Search, RefreshCw, ChevronDown } from "lucide-react";
 import { gsap } from "gsap";

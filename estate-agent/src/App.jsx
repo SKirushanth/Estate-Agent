@@ -14,6 +14,8 @@ import Navbar from "./components/Navbar";
 // 1. Import the Footer
 import Footer from "./components/Footer";
 
+const FAVOURITES_STORAGE_KEY = "estate-agent-favourites";
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -26,7 +28,17 @@ function ScrollToTop() {
 
 function App() {
   // Central State for Favourites
-  const [favourites, setFavourites] = useState([]);
+  const [favourites, setFavourites] = useState(() => {
+    try {
+      const stored = localStorage.getItem(FAVOURITES_STORAGE_KEY);
+      if (!stored) return [];
+
+      const parsed = JSON.parse(stored);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  });
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -59,19 +71,28 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem(FAVOURITES_STORAGE_KEY, JSON.stringify(favourites));
+  }, [favourites]);
+
   // Function to add a property to favourites
   const addToFavourites = (property) => {
     // Check for duplicates (Distinction criteria)
-    if (!favourites.some((fav) => fav.id === property.id)) {
-      setFavourites([...favourites, property]);
-    } else {
-      alert("Property is already in your favourites!");
-    }
+    setFavourites((prevFavourites) => {
+      if (prevFavourites.some((fav) => fav.id === property.id)) {
+        alert("Property is already in your favourites!");
+        return prevFavourites;
+      }
+
+      return [...prevFavourites, property];
+    });
   };
 
   // Function to remove
   const removeFromFavourites = (id) => {
-    setFavourites(favourites.filter((prop) => prop.id !== id));
+    setFavourites((prevFavourites) =>
+      prevFavourites.filter((prop) => prop.id !== id),
+    );
   };
 
   // Function to clear all

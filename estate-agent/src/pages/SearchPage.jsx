@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropertyCard from "../components/PropertyCard";
 import FavouritesSidebar from "../components/FavouritesSidebar";
 // Asset import for the background image
-import heroBg from "../assets/hero-bg.png";
+import heroBg from "../assets/hero-bg.jpg";
 import properties from "../data/properties";
 import { Search, RefreshCw, ChevronDown } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const SearchPage = ({
   addToFavourites,
@@ -12,6 +14,9 @@ const SearchPage = ({
   removeFromFavourites,
   clearFavourites,
 }) => {
+  const heroSectionRef = useRef(null);
+  const heroImageRef = useRef(null);
+
   const [filters, setFilters] = useState({
     type: "any",
     minPrice: "",
@@ -65,30 +70,67 @@ const SearchPage = ({
     });
   };
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (!heroSectionRef.current || !heroImageRef.current) {
+      return undefined;
+    }
+
+    const context = gsap.context(() => {
+      gsap.set(heroImageRef.current, {
+        scale: 1.2,
+        transformOrigin: "center center",
+      });
+
+      gsap.to(heroImageRef.current, {
+        scale: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroSectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }, heroSectionRef);
+
+    return () => {
+      context.revert();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-slate-50 pb-12">
       {/* 1. HERO SECTION */}
-      <div
-        className="relative bg-blue-900 text-white py-24 px-4 text-center shadow-lg mb-8 overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), url(${heroBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
+      <section
+        id="hero"
+        ref={heroSectionRef}
+        className="relative min-h-screen px-4 text-white shadow-lg mb-10 overflow-hidden flex items-center justify-center"
       >
-        <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-serif font-medium mb-4 drop-shadow-2xl">
+        <img
+          ref={heroImageRef}
+          src={heroBg}
+          alt="Luxury homes hero"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/35 to-slate-900/10" />
+
+        <div className="relative z-10 w-full max-w-4xl text-center">
+          <h1 className="text-4xl md:text-6xl font-serif font-medium mb-4 drop-shadow-2xl">
             Find Your Dream Home
           </h1>
-          <p className="text-white text-lg max-w-2xl mx-auto drop-shadow-lg font-serif opacity-90">
+          <p className="text-white text-lg md:text-xl max-w-2xl mx-auto drop-shadow-lg font-serif opacity-90">
             Search through our extensive collection of properties to find your
             perfect match
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div
+        id="properties"
+        className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-4 gap-8"
+      >
         <div className="lg:col-span-3 space-y-6">
           <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
             <div className="flex justify-between items-center mb-6">

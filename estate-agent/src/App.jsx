@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,8 +19,8 @@ const FAVOURITES_STORAGE_KEY = "estate-agent-favourites";
 function ScrollToTop() {
   const { pathname } = useLocation();
 
-  React.useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [pathname]);
 
   return null;
@@ -102,7 +102,12 @@ function App() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <Router>
+      <Router
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <ScrollToTop />
         {/* 2. Added 'flex flex-col' to make the layout vertical */}
         <div className="min-h-screen bg-gray-50 text-slate-900 font-sans flex flex-col">
